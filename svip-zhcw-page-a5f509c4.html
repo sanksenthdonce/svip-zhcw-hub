@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>中彩网 · 简明访问指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f8fbfe;
+      color: #1a2c3e;
+      line-height: 1.6;
+      padding: 0 1.2rem;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* 网格卡片色彩主题：蓝绿点缀 */
+    .accent-green {
+      color: #1f8b7a;
+    }
+
+    .accent-blue {
+      color: #2b6f9c;
+    }
+
+    .bg-soft-green {
+      background: #e6f3f0;
+    }
+
+    .bg-soft-blue {
+      background: #e3eef9;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: 3rem 0 2.2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: linear-gradient(90deg, #2b9c8a, #3e7fb1);
+      margin: 1.6rem auto 0;
+      border-radius: 4px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #103542;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #3d5b6b;
+      margin-top: 0.75rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 400;
+    }
+
+    .hero .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem 1rem;
+      margin: 1.4rem 0 0.2rem;
+    }
+
+    .badge {
+      background: white;
+      border: 1px solid #c5dbe8;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #1f5a6e;
+      box-shadow: 0 2px 4px rgba(0, 40, 50, 0.04);
+    }
+
+    .badge i {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #289f8a;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    /* ---------- 卡片网格 ---------- */
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 500;
+      margin: 2.6rem 0 1.5rem;
+      color: #0b2c3b;
+      letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::before {
+      content: '◆';
+      color: #1f8b7a;
+      font-size: 1.1rem;
+      margin-right: 10px;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 1.2rem 0 1rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.8rem 1.2rem 1.5rem;
+      border-radius: 24px;
+      box-shadow: 0 8px 24px rgba(30, 60, 80, 0.05);
+      border: 1px solid #dbe9f0;
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 32px rgba(20, 70, 80, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .card .emojii {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1f4b5e;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: #2f4b5a;
+      font-size: 0.95rem;
+    }
+
+    .card .tag {
+      display: inline-block;
+      background: #d7edeb;
+      color: #116454;
+      border-radius: 30px;
+      padding: 0.1rem 0.8rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-top: 0.8rem;
+    }
+
+    /* ---------- 说明区/提示区 ---------- */
+    .notice-area {
+      margin: 2.8rem 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      background: #e5f1f5;
+      padding: 2rem 1.6rem;
+      border-radius: 32px;
+      border-left: 6px solid #1f8b7a;
+    }
+
+    .notice-area .left-note {
+      flex: 2;
+      min-width: 200px;
+    }
+
+    .notice-area .right-note {
+      flex: 3;
+      min-width: 200px;
+    }
+
+    .notice-area h4 {
+      font-weight: 500;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #084050;
+    }
+
+    .notice-area ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .notice-area li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+    }
+
+    .notice-area li::before {
+      content: '•';
+      color: #1f8b7a;
+      font-weight: bold;
+      margin-right: 0.3rem;
+    }
+
+    .reminder-box {
+      background: white;
+      border-radius: 20px;
+      padding: 1.2rem 1.2rem 1rem;
+      margin-top: 1rem;
+      border: 1px solid #c7dce5;
+    }
+
+    .reminder-box strong {
+      color: #136f5e;
+    }
+
+    /* ---------- FAQ 摘要 ---------- */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0 1.8rem;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 20px;
+      padding: 1rem 1.2rem;
+      border: 1px solid #d4e2eb;
+    }
+
+    .faq-item .question {
+      font-weight: 500;
+      color: #0b4355;
+      display: flex;
+      gap: 0.4rem;
+      align-items: baseline;
+    }
+
+    .faq-item .question::before {
+      content: 'Q';
+      background: #289f8a;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .faq-item .answer {
+      margin-top: 0.4rem;
+      color: #2f5062;
+      font-size: 0.9rem;
+      padding-left: 1.6rem;
+    }
+
+    .faq-more {
+      font-size: 0.9rem;
+      text-align: right;
+      margin-top: 0.2rem;
+      color: #336e82;
+    }
+
+    /* ---------- 底部 ---------- */
+    .footer-links {
+      border-top: 1px solid #cfe0e9;
+      margin: 3rem 0 1.8rem;
+      padding: 2rem 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links .info {
+      color: #3b5d6b;
+      font-size: 0.85rem;
+    }
+
+    .footer-links .info a {
+      color: #136f5e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #8bb7c4;
+    }
+
+    .footer-links .info a:hover {
+      border-bottom: 1px solid #136f5e;
+    }
+
+    .footer-meta {
+      text-align: center;
+      color: #5d7e8b;
+      font-size: 0.8rem;
+      border-top: 1px dashed #d3e0e8;
+      padding-top: 1.2rem;
+      margin: 0.5rem 0 3rem;
+    }
+
+    /* ---------- 响应式 ---------- */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero .sub {
+        font-size: 1rem;
+      }
+      .notice-area {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.4rem 1rem;
+      }
+      .grid-cards {
+        gap: 1rem;
+      }
+      .card {
+        padding: 1.2rem;
+      }
+      .section-title {
+        font-size: 1.4rem;
+      }
+      .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0 0.7rem;
+      }
+      .hero {
+        padding: 2rem 0 1.6rem;
+      }
+      .badge {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HERO 区 -->
+    <header class="hero">
+      <h1>中彩网 · 简明访问指引</h1>
+      <p class="sub">关于如何使用与浏览的温和提示，以及站点特点一览</p>
+      <div class="badge-group">
+        <span class="badge"><i></i>信息参考</span>
+        <span class="badge"><i></i>功能索引</span>
+        <span class="badge"><i></i>使用提醒</span>
+      </div>
+    </header>
+
+    <!-- 特点 + 优势网格 -->
+    <section>
+      <h2 class="section-title">站点特色</h2>
+      <div class="grid-cards">
+        <div class="card">
+          <span class="emojii">🧭</span>
+          <h3>清晰分类</h3>
+          <p>内容按类型与场景组织，方便你快速定位感兴趣的部分。从通知到阅览均有独立模块。</p>
+          <span class="tag">布局</span>
+        </div>
+        <div class="card">
+          <span class="emojii">📄</span>
+          <h3>资讯聚合</h3>
+          <p>汇集相关动态与基础说明，保持信息呈现的连贯性。不堆砌，聚焦实在内容。</p>
+          <span class="tag">更新</span>
+        </div>
+        <div class="card">
+          <span class="emojii">🔒</span>
+          <h3>访问注意</h3>
+          <p>建议通过常用浏览器直接访问，保持网络通畅。留意地址栏显示是否正确。</p>
+          <span class="tag">提示</span>
+        </div>
+        <div class="card">
+          <span class="emojii">⚙️</span>
+          <h3>轻量交互</h3>
+          <p>页面响应迅速，在手机与桌面设备上均有合理布局，减少缩放与滑动的负担。</p>
+          <span class="tag">适配</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 说明区 + 访问提醒混合 -->
+    <div class="notice-area">
+      <div class="left-note">
+        <h4>📌 访问说明</h4>
+        <ul>
+          <li>在地址栏直接输入站点域名，或通过收藏夹进入。</li>
+          <li>建议使用最新版 Chrome、Edge 或 Safari 浏览器。</li>
+          <li>部分页面可能需要允许弹窗或脚本，请按需设置。</li>
+          <li>保持页面更新，以获得更好的浏览体验。</li>
+        </ul>
+      </div>
+      <div class="right-note">
+        <div class="reminder-box">
+          <strong>📋 快捷参考</strong>
+          <p style="margin-top: 6px; font-size: 0.95rem;">
+            你可以在页面中找到相关功能指引。如需直接前往 <a href="https://svip-zhcw.com" style="color: #136f5e; text-decoration: none; font-weight: 500; border-bottom: 1px dotted #4c9b8a;">中彩网</a>，请点击上方链接或手动输入。建议初次访问时花一点时间熟悉内容分区。
+          </p>
+        </div>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #1b5266;">
+          💡 如果遇到加载缓慢，可尝试刷新或更换网络环境。
+        </p>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <section>
+      <h2 class="section-title">常见疑问摘要</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="question">页面有时无法加载，怎么办？</div>
+          <div class="answer">先检查本地网络连接，或稍后再试。也可以清除浏览器缓存后重试。</div>
+        </div>
+        <div class="faq-item">
+          <div class="question">站点主要提供哪类信息？</div>
+          <div class="answer">涵盖资讯阅览、功能导航以及相关说明，结构比较直观。</div>
+        </div>
+        <div class="faq-item">
+          <div class="question">移动端显示是否正常？</div>
+          <div class="answer">已针对手机屏幕适配，卡片和文字会自适应，无需频繁缩放。</div>
+        </div>
+        <div class="faq-item">
+          <div class="question">如何反馈浏览时的问题？</div>
+          <div class="answer">可通过页面内提供的联系方式或渠道说明情况，但本页仅作介绍。</div>
+        </div>
+      </div>
+      <div class="faq-more">—— 更多细节建议在站内对应区域查看 ——</div>
+    </section>
+
+    <!-- 底部链接 + 附加说明 -->
+    <footer class="footer-links">
+      <div class="info">
+        <span>实用链接：</span>
+        <a href="https://svip-zhcw.com">中彩网</a>
+        <span style="margin:0 8px; color:#b0cbd6;">|</span>
+        <span style="color:#3e687b;">简明指南</span>
+      </div>
+      <div class="info">
+        <span style="background: #d8eaf0; padding: 0.1rem 0.6rem; border-radius: 30px;">💬 保持良好浏览习惯</span>
+      </div>
+    </footer>
+
+    <div class="footer-meta">
+      内容概要 · 仅作介绍参考 · 页面陈述温和中立
+    </div>
+  </div>
+</body>
+</html>
